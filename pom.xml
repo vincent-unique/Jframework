@@ -13,6 +13,7 @@
         <module>springframewok</module>
         <module>spingsecurity</module>
         <module>springdata</module>
+        <module>springmvc</module>
     </modules>
 
 </project>

@@ -42,4 +42,19 @@ public class XmlBeanClassLoad {
 
         return (T)bean;
     }
+
+    public int getNum() {
+        try {
+            System.out.println("num :1");
+//            throw new RuntimeException("1") ;
+            return 1;
+        }finally {
+            System.out.println("num :2");
+            throw new RuntimeException("1");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new XmlBeanClassLoad().getNum());
+    }
 }

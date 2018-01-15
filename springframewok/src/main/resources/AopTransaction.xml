@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="datasource" class="javax.sql.DataSource">
+
+    </bean>
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <bean id="hibernateTXManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <aop:config>
+        <aop:pointcut id="serviceMethod" 
+                      expression="execution(* org.trump.vincent.springframework.service.*.*(..))"/>
+        
+        <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice"/>
+
+    </aop:config>
+
+    <aop:config>
+        <aop:pointcut id="daoMethod"
+                      expression="execution(* org.trump.vincent.springframework.dao.*.*(..))"/>
+
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="daoMethod"/>
+
+    </aop:config>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="load*" read-only="true"
+                       isolation="REPEATABLE_READ" propagation="REQUIRED"/>
+
+            <tx:method name="get*" read-only="true"
+                       isolation="REPEATABLE_READ" propagation="REQUIRED"/>
+
+            <tx:method name="update*" read-only="false"
+                       isolation="DEFAULT" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <tx:annotation-driven transaction-manager="hibernateTXManager"/>
+
+
+
+
+    <aop:config>
+        <aop:pointcut id="logMethod"
+                      expression="execution(* org.trump.vincent.springframework..*.*(..))"/>
+    </aop:config>
+
+    <bean id="logAdvice" ></bean>
+</beans>

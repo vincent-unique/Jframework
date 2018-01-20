@@ -1,4 +1,4 @@
-package org.trump.vincent.mybatis.controller;
+package org.trump.vincent.mybatis.controller.raw;
 
 
 import org.springframework.web.servlet.ModelAndView;

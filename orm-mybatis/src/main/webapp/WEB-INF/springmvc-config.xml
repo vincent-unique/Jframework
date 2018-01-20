@@ -24,6 +24,9 @@
     <context:component-scan base-package="org.trump.vincent.mybatis.controller.annotation"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>-->
-
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--<property name="prefix" value="/WEB-INF/content/"/>-->
+        <!--<property name="suffix" value=".jsp"/>-->
+    </bean>
+    
 </beans>

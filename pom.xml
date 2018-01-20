@@ -11,9 +11,10 @@
 
     <modules>
         <module>springframewok</module>
-        <module>spingsecurity</module>
+        <module>springsecurity</module>
         <module>springdata</module>
         <module>springmvc</module>
+        <module>orm-mybatis</module>
     </modules>
 
 </project>

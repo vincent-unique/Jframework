@@ -4,15 +4,29 @@
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
+
        http://code.alibabatech.com/schema/dubbo
-        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application name="simple-provider"/>
 
     <dubbo:registry address="multicast://224.5.6.7:1234"/>
     <dubbo:protocol name="dubbo" port="20880"/>
-    <dubbo:service interface="org.trump.vincent.dubbo.simple.SimpleService"
-                   ref="simpleService"/>
-    <bean id="simpleService"
-          class="org.trump.vincent.dubbo.simple.provider.SimpleServiceImpl"/>
+    <!--<dubbo:protocol name="jms">
+        <dubbo:parameter key="queue" value="my_queue"/>
+    </dubbo:protocol>-->
 
+    <dubbo:provider timeout="5000"></dubbo:provider>
+    <dubbo:service interface="org.trump.vincent.dubbo.simple.SimpleService"
+                   ref="simpleService" timeout="2000"/>
+
+
+    <dubbo:consumer timeout="6000"></dubbo:consumer>
+    <dubbo:reference interface="org.trump.vincent.dubbo.simple.SimpleService"
+                     id="simpleService" timeout="2000" lazy="true">
+        <dubbo:method name="hello" timeout="3000"/>
+    </dubbo:reference>
+
+    <!--<bean id="simpleService"
+          class="org.trump.vincent.dubbo.simple.provider.SimpleServiceImpl"/>
+-->
 </beans>

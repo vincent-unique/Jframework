@@ -15,6 +15,7 @@
         <module>springdata</module>
         <module>springmvc</module>
         <module>orm-mybatis</module>
+        <module>dubbo</module>
     </modules>
 
     <dependencies>

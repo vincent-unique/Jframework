@@ -1,7 +1,10 @@
 package org.trump.vincent.mybatis.domain;
 
+import org.apache.ibatis.type.Alias;
+
 import java.io.Serializable;
 
+@Alias("user")
 public class User implements Serializable{
     private static final long serialVersionUID = 100432L;
     public String getUserId() {

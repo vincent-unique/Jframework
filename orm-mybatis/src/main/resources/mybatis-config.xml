@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties></properties>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+   <typeAliases>
+       <package name="org.trump.vincent.mybatis.domain"/>
+   </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/sampdb"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+
+        <environment id="runtime">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="JNDI">
+                <property name="initial_context" value="java:/comp/env/"/>
+                <property name="data_source" value="sampdb"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--<mapper resource="org/trump/vincent/mybatis/mapper/UserMapper.xml"/>-->
+        <package name="org.trump.vincent.mybatis.mapper"/>
+    </mappers>
+</configuration>

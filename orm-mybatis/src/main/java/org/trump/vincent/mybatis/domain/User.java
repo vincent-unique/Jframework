@@ -1,12 +1,14 @@
 package org.trump.vincent.mybatis.domain;
 
 import org.apache.ibatis.type.Alias;
+import org.trump.vincent.mybatis.enumeration.GenderEnum;
 
 import java.io.Serializable;
 
 @Alias("user")
 public class User implements Serializable{
     private static final long serialVersionUID = 100432L;
+
     public String getUserId() {
         return userId;
     }
@@ -43,12 +45,12 @@ public class User implements Serializable{
         return this;
     }
 
-    public SexEnum getSex() {
-        return sex;
+    public GenderEnum getGender() {
+        return gender;
     }
 
-    public User setSex(SexEnum sex) {
-        this.sex = sex;
+    public User setGender(GenderEnum gender) {
+        this.gender = gender;
         return this;
     }
 
@@ -56,9 +58,6 @@ public class User implements Serializable{
     private String userName;
     private String password;
     private int age;
-    private SexEnum sex;
+    private GenderEnum gender;
 }
-enum  SexEnum implements Serializable{
-    MALE,
-    FEMALE
-}
+

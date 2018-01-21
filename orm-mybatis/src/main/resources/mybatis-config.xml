@@ -35,4 +35,11 @@
         <!--<mapper resource="org/trump/vincent/mybatis/mapper/UserMapper.xml"/>-->
         <package name="org.trump.vincent.mybatis.mapper"/>
     </mappers>
+
+    <typeHandlers>
+        <typeHandler handler="org.trump.vincent.mybatis.enumeration.handler.GenderEnumTypeHandler"
+                     javaType="org.trump.vincent.mybatis.enumeration.GenderEnum"/>
+    </typeHandlers>
+
+
 </configuration>

@@ -1,0 +1,1 @@
+## Mybatis XML-configuration-style Mapper

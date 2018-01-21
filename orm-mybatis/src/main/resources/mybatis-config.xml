@@ -23,7 +23,7 @@
         </environment>
 
         <environment id="runtime">
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="MANAGED"></transactionManager>
             <dataSource type="JNDI">
                 <property name="initial_context" value="java:/comp/env/"/>
                 <property name="data_source" value="sampdb"/>

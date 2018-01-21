@@ -1,1 +1,0 @@
-package org.trump.vincent.dubbo;

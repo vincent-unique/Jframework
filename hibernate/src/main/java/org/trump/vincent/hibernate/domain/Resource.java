@@ -1,15 +1,38 @@
 package org.trump.vincent.hibernate.domain;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by Vincent on 2018/1/23 0023.
  */
-public class Resource {
+public class Resource implements Serializable{
+    private static final long serialVersionUID = 42321L;
 
     protected String id;
+
+    protected String name;
     protected String ccid;
     protected String parentId;
+    protected String rootId;
+    protected Timestamp created;
+    protected int inpoint;
+    protected int outpoint;
+    protected String iconFile = "";
+    protected Timestamp lastModify;
+    protected int priority;
+    protected int hasFile;
+
+    public long getVersion() {
+        return version;
+    }
+
+    public Resource setVersion(long version) {
+        this.version = version;
+        return this;
+    }
+
+    private long version;
 
     public String getId() {
         return id;
@@ -17,6 +40,15 @@ public class Resource {
 
     public Resource setId(String id) {
         this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Resource setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -109,13 +141,4 @@ public class Resource {
         this.hasFile = hasFile;
         return this;
     }
-
-    protected String rootId;
-    protected Timestamp created;
-    protected int inpoint;
-    protected int outpoint;
-    protected String iconFile = "";
-    protected Timestamp lastModify;
-    protected int priority;
-    protected int hasFile;
 }

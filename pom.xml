@@ -16,6 +16,7 @@
         <module>springmvc</module>
         <module>orm-mybatis</module>
         <module>dubbo</module>
+        <module>hibernate</module>
     </modules>
 
     <dependencies>

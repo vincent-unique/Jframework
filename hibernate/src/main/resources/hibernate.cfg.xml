@@ -13,6 +13,14 @@
         <property name="connection.username">mysql</property>
         <property name="connection.password">mysql</property>
 
+        <!-- Hibernate 内置的连接池，不推荐使用 -->
+        <!--<property name="connection.pool_size">5</property>-->
+
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.max_size">20</property>
+        <property name="c3p0.max_statements">60</property>
+        <property name="c3p0.timeout">2000</property>
+
         <mapping package="org.trump.vincent.hibernate.domain"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,8 @@
 package org.trump.vincent.hibernate.dao.impl;
 
+import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
+import org.hibernate.LockOptions;
 import org.hibernate.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.query.Query;
@@ -53,5 +55,15 @@ public class ResourceDaoImpl implements ResourceDao {
         session.getTransaction().commit();
         session.close();
         return resourceList;
+    }
+
+    public List<Resource> loadByCCID(String ccId){
+        Session session = SingletonSessionFactory.getSessionFactory().openSession();
+        session.clear();
+        session.setCacheMode(CacheMode.PUT);
+        session.buildLockRequest(LockOptions.READ);
+        Query<Resource> resourceQuery = session.createQuery("FROM org.trump.vincent.hibernate.domain.Resource WHERE CCID LIKE :ccId");
+        List<Resource> resourceList = resourceQuery.list();
+
     }
 }

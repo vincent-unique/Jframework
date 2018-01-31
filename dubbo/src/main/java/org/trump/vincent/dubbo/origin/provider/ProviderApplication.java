@@ -42,4 +42,8 @@ public class ProviderApplication {
         //服务发布
         serviceConfig.export();
     }
+
+    public static void main(String[] args) {
+        new ProviderApplication().publish();
+    }
 }

@@ -12,7 +12,6 @@
     <dubbo:reference id="simpleService"
                      interface="org.trump.vincent.dubbo.simple.SimpleService"/>
 
-
     <bean id="simpleController" 
           class="org.trump.vincent.dubbo.simple.consumer.controller.SimpleController">
         <property name="simpleService" ref="simpleService"/>

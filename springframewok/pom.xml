@@ -15,11 +15,18 @@
 
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring -->
+      <!--  &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring &ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring</artifactId>
             <version>2.5.6</version>
+        </dependency>
+-->
+        <!--Java项目中只需引入 context 就成功引入 spring框架-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.4.RELEASE</version>
         </dependency>
 
     </dependencies>

@@ -8,13 +8,14 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mvc</artifactId>
     <packaging>war</packaging>
-    <name>springmvc Maven Webapp</name>
+    <name>springmvc [Maven Webapp]</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+
+        <!--web 项目中只需要 webmvc模块就可以引入 SpringMVC了-->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <artifactId>spring-webmvc</artifactId>
             <version>4.3.10.RELEASE</version>
         </dependency>
 
